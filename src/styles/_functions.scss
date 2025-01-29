@@ -1,0 +1,9 @@
+// Define a custom function to lighten a color based on a percentage
+@function lightenColor($color, $percentage) {
+    @return lighten($color, $percentage);
+  }
+  
+  // Define a custom function to calculate the total margin based on the screen size
+  @function dynamicMargin($baseMargin) {
+    @return $baseMargin * 1.5;
+  }

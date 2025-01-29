@@ -1,0 +1,100 @@
+
+
+/* CardGrid.scss */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;       /* Allow items to wrap */
+    gap: 20px;             /* Space between cards */
+  }
+  
+  .card {
+    background-color: #3498db;
+    color: white;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: 100%; /* Cards will take full width on smaller screens */
+    }
+  }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; // Single column on small screens
+    }
+  }
+  
+  .grid-item {
+    background: #e0e0e0;
+    padding: 20px;
+    text-align: center;
+  }
+  .grid-item-details{
+    @extend .item-details
+  }
+  .add-item{
+    @extend .remove-item ;
+  }
+
+
+  /* CardList.scss */
+.card-list {
+    display: flex;
+    flex-wrap: wrap;      /* Allow cards to wrap when space is constrained */
+    gap: 20px;            /* Space between cards */
+    justify-content: center; /* Center the cards horizontally */
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: #3498db;
+    color: white;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-10px); /* Lift card on hover */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow */
+    }
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* Responsive Design for Small Screens */
+  @media (max-width: 768px) {
+    .card-list {
+      justify-content: flex-start; /* Align to left on smaller screens */
+    }
+  
+    .card {
+      width: 100%; /* Make each card take full width on small screens */
+      height: auto; /* Allow card to grow vertically */
+    }
+  }
