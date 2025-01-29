@@ -1,0 +1,120 @@
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$light-gray: #ecf0f1;
+$border-color: #ddd;
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.cart-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: $secondary-color;
+    }
+
+    .cart-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        background-color: $light-gray;
+
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+            margin-left: 15px;
+
+            h3 {
+                margin: 0;
+                font-size: 1.2rem;
+                color: $secondary-color;
+            }
+
+            p {
+                margin: 5px 0;
+                font-size: 1rem;
+                color: $secondary-color;
+            }
+
+            .quantity {
+                width: 60px;
+                padding: 5px;
+                font-size: 1rem;
+                margin-top: 10px;
+                border: 1px solid $border-color;
+                border-radius: 4px;
+            }
+        }
+
+        .remove-item {
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darkred;
+            }
+        }
+    }
+
+    .cart-summary {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: $light-gray;
+        border-radius: 8px;
+        border: 1px solid $border-color;
+
+        p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: $secondary-color;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: $primary-color;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+    }
+}

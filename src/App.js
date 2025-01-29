@@ -6,7 +6,7 @@ import NavBar from './component/NavBar/NavBar';
 function App() {
   return (
     <div className="App">
-   <ShoppingItemList/>
+   <ShoppingCart/>
   </div>
   );
 }
