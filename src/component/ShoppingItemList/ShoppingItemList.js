@@ -1,28 +1,38 @@
 import React ,{ useState,useEffect  }from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Product from "../Product/Product";
-import { useCart } from '../../CartContext';
+import useFetchData from "../../Customhooks/useFetchData";
 
-const ShoppingItemList = () => {
+const ShoppingItemList = ({selectedCategory}) => {
     const [products, setproducts] = useState([]);
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('https://fakestoreapi.com/products');
-        if (!response.ok) {
-          throw new Error('Failed to fetch products');
-        }
-        const data = await response.json();
-        setproducts(data);
-        console.log(data);
-      } catch (err) {
-        //setError(err.message);
-      } finally {
-        //setLoading(false);
+    var url;
+
+      if(selectedCategory!==null && selectedCategory !== ''){
+        const { name } = selectedCategory;
+        url=`https://fakestoreapi.com/products/category/${name}`
       }
+      else{
+        url=`https://fakestoreapi.com/products`
+      }
+     console.log(url)
+    const { items, loading, error } = useFetchData(url);
+
+    const FetchProducts =  () => {
+       if (loading) {
+        return <div>Loading...</div>;
+      }
+      if (error) {
+        return <div>Error: {error}</div>;
+      }
+       setproducts(items);
+       console.log(products);
     };
+
     useEffect(() => {
-      fetchProducts();
-  }, []);
+      FetchProducts();
+  }, [items]);
+
+  
   return (
     <div>
       <div className="container">

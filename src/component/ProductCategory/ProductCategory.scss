@@ -1,0 +1,41 @@
+/* App.css */
+.App {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+.treeview {
+  margin-top: 1px;
+}
+
+.list-group {
+  max-width: 300px;
+}
+
+.list-group-item {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  padding: 10px;
+  width: 100px;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+
+.list-group-item.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.category-details {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+}

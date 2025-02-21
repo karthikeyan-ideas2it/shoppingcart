@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
+import Checkout from './component/CheckOut/CheckOut';
+import Home from './component/Home/Home';
+import OrderSummary from './component/OrderSummary/OrderSummary';
 import ShoppingCart from './component/ShoppingCart/ShoppingCart';
 import ShoppingItemList from './component/ShoppingItemList/ShoppingItemList';
-import NavBar from './component/NavBar/NavBar';
-import { CartProvider } from '../src/CartContext';
+import { CartItemProvider } from './Context/CartItemContext';
+
+
 function App() {
   return (
-    <CartProvider>
-      <div className="App">
-        <h1 className="text-center">Shopping Cart</h1>
-        <br></br>
-        <div className="row">
-          <div className="col-8">
-          <ShoppingItemList/>
-          </div>
-          <div className="col-4">
-            <ShoppingCart />
-          </div>
+      <CartItemProvider>
+        <div className="App">
+          <Router>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/OrderSummary" element={<OrderSummary />} />
+              <Route path="/CheckOut" element={<Checkout />} />
+              <Route path="/ShoppingCart'" element={<ShoppingCart />} />
+              <Route path="/ShoppingItemList" element={<ShoppingItemList />}>
+              </Route>
+            </Routes>
+          </Router>
         </div>
-      </div>
-    </CartProvider>
+      </CartItemProvider>
+    //<CartProvider>
+    // </CartProvider>
   );
 }
 export default App;
